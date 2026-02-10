@@ -1,0 +1,42 @@
+# dependencies
+node_modules/
+
+# env files
+.env
+.env.*
+
+# logs
+logs
+*.log
+
+# build
+dist/
+build/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# misc
+*.local
+
+# coverage
+coverage/
+
+# npm cache
+.npm/
+
+# frontend vite
+frontend/node_modules/
+frontend/dist/
+
+# backend
+backend/node_modules/
+
+# optional
+*.pid
+*.seed

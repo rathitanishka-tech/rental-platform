@@ -1,0 +1,102 @@
+body {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  background: #F2F4F7;
+  color: #131415;
+}
+
+/* layout */
+.page {
+  max-width: 1200px;
+  margin: auto;
+  padding: 30px 20px;
+}
+
+/* navbar */
+.navbar {
+  background: #ffffff;
+  padding: 16px 30px;
+  border-bottom: 1px solid #E5E7EB;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* grid */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px,1fr));
+  gap: 20px;
+}
+
+/* card */
+.card {
+  background: #ffffff;
+  border-radius: 14px;
+  border: 1px solid #E5E7EB;
+  overflow: hidden;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+.card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+/* content */
+.card-body {
+  padding: 16px;
+}
+
+/* buttons */
+.btn {
+  padding: 10px 16px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: #1E5EFF;
+  color: white;
+}
+
+.btn-secondary {
+  background: #F2F4F7;
+  border: 1px solid #E5E7EB;
+}
+
+/* input */
+.input {
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #E5E7EB;
+  width: 100%;
+}
+
+/* badge */
+.badge {
+  padding: 5px 10px;
+  border-radius: 8px;
+  font-size: 12px;
+}
+
+.badge-visited { background: #DCFCE7; color: green; }
+.badge-scheduled { background: #FEF9C3; color: #92400E; }
+.badge-pending { background: #E5E7EB; }
+
+button {
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+button:hover {
+  transform: scale(1.03);
+}
