@@ -3,19 +3,31 @@ const Visit = require("../models/Visit");
 // ➕ Request Visit
 exports.requestVisit = async (req, res) => {
   try {
-    const visits = await Visit.find({ userId: req.user.id })
-  .populate("propertyId");
+    console.log("BODY:", req.body);     
+    console.log("USER:", req.user);     
+
+    const { propertyId } = req.body;
+
+    if (!propertyId) {
+      return res.status(400).json({ message: "Property ID missing" });
+    }
+
+    const visit = await Visit.create({
+      userId: req.user.id,
+      propertyId
+    });
 
     res.status(201).json(visit);
-  } catch (error) {
-    res.status(500).json({ message: error.message });
+  } catch (err) {
+    console.log("VISIT ERROR FULL:", err); // 👈 IMPORTANT
+    res.status(500).json({ message: "Error requesting visit" });
   }
 };
 
 // 📄 Get My Visits
 exports.getUserVisits = async (req, res) => {
   try {
-   const visits = await Visit.find({ user: req.user.id })
+   const visits = await Visit.find({ userId: req.user.id })
   .populate("propertyId");
 
     res.json(visits);
@@ -31,7 +43,6 @@ exports.updateVisitStatus = async (req, res) => {
 
     const allowedStatuses = ["requested", "scheduled", "visited", "decision"];
 
-    // ✅ VALIDATION MUST BE INSIDE FUNCTION
     if (status && !allowedStatuses.includes(status)) {
       return res.status(400).json({ message: "Invalid status" });
     }

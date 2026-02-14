@@ -19,18 +19,14 @@ const userSchema = new mongoose.Schema({
     enum: ["tenant", "admin"],
     default: "tenant"
   },
-  shortlistedProperties: [
+
+  shortlist: [
     {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Property"
     }
-  ],
-  shortlist: [
-  {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "Property"
-  }
-]
+  ]
+
 }, { timestamps: true });
 
 module.exports = mongoose.model("User", userSchema);

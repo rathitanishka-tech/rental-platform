@@ -16,9 +16,7 @@ app.get("/api/protected", protect, (req, res) => {
   });
 });
 // middleware
-app.use(cors({
-  origin: "*"
-}));
+app.use(cors());
 app.use(express.json());
 
 // test route

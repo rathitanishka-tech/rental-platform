@@ -104,4 +104,18 @@ export default function PropertyDetails() {
       </div>
     </div>
   );
+
+  const handleSave = async () => {
+  try {
+    await API.post("/users/shortlist", {
+      propertyId: property._id
+    });
+
+    alert("Saved successfully ❤️");
+
+  } catch (err) {
+    console.log(err);
+    alert("Error saving");
+  }
+};
 }

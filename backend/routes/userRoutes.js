@@ -10,9 +10,7 @@ const {
 } = require("../controllers/userController");
 
 router.get("/shortlist", protect, getShortlist);
-
 router.post("/shortlist", protect, addToShortlist);
-
 router.delete("/shortlist", protect, removeFromShortlist);
 
 module.exports = router;
